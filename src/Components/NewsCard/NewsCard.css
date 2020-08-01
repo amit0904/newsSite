@@ -1,0 +1,25 @@
+@media only screen and (max-width : 1150px) {
+    .container{
+        margin : 20px;
+        display : inline-grid;
+        grid-template-columns : repeat(3, 1fr);
+        grid-auto-rows : 2fr; 
+        gap : 10px 10px;
+        width: 60%;
+        position: relative;
+
+    }
+}
+
+
+@media only screen and (min-width :1151px) {
+    .container{
+        margin : 20px;
+        display : inline-grid;
+        grid-template-columns : repeat(4, 1fr);
+        grid-auto-rows : 2fr; 
+        gap : 10px 10px;
+        width: 60%;
+        position: relative;
+    }
+}

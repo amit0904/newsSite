@@ -4,7 +4,7 @@ const initialState = {
     newsArticles : [ ]
 }
 
-function newsReducer (state = initialState, action) {
+function newsFeedReducer (state = initialState, action) {
 
             switch (action.type) {
                 case FETCH_NEWS_FEED :
@@ -19,4 +19,4 @@ function newsReducer (state = initialState, action) {
         
         }
 
-export default newsReducer
+export default newsFeedReducer

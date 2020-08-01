@@ -1,2 +1,3 @@
 export const FETCH_NEWS_FEED = "FETCH_NEWS_FEED"
-export const NEWS_FEED = "NEWS_FEED"
+export const NEWS_DATA_SOURCE = "NEWS_DATA_SOURCE"
+export const NEWS_CATEGORY = "NEWS_CATEGORY"

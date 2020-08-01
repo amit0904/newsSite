@@ -1,0 +1,26 @@
+
+.navParent {
+    display : inline-flex;
+    flex-direction: column;
+    border : 1px solid black;
+    border-radius : 10px;
+    padding : 5px;
+    margin: 10px;
+    background-color : #EDE176;
+    font-weight:bold; 
+    text-align : center;
+    min-width: 200px
+}
+
+.navChild {   
+    flex: 1 1 20px;
+    background-color: #F0E68C;
+    border : 1px transparent ;
+    font-weight: lighter;
+    text-align: left
+}
+
+.collapse{
+    overflow:hidden;
+    display:none   
+}

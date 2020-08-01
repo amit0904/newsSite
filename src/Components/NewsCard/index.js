@@ -1,17 +1,27 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import './NewsCard.css'
 
 function NewsCard() {
 
-    const data = useSelector(state => {return state.newsReducer.newsArticles})
+    const data = useSelector(state => {return state.newsFeedReducer.newsArticles})
 
-    const dataCopy = data.map(item => <div style={{border : "1px solid black", padding: "5px"}}>{item.title}</div>)
+  
+
+    const dataCopy = data.map(item => <figure style={{border : "1px solid black", padding: "5px", margin : "1px", maxWidth : "200px"}}>
+                                            <h6 style={{marginTop : "5px"}}>{item.source.name}</h6>
+                                            <a href={item.url} target="_blank" rel="noopener noreferrer"><img src={item.urlToImage} alt="urlToImage" width="200px" border="1px solid black"></img></a>
+                                            <figcaption> {item.title}</figcaption>
+                                      </figure>)
+    
+
 
     return(
-        <div style={{display : "grid", gridTemplateColumns : "repeat(4, 1fr)", gridAutoRows : "2fr", gap : "10px 10px" }}>
+        <div className="container">
             {dataCopy}
         </div>
     )
 }
 
-export default NewsCard
+export default NewsCard 
+
