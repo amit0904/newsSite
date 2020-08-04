@@ -1,0 +1,37 @@
+
+.MenuParent {
+    display : inline-flex;
+    flex-direction: column;
+    list-style-type: none;
+    border : .5px solid black;
+    border-radius : 10px;
+    padding : 5px 0px;
+    margin: 40px 10px;
+    background-color :#E5E5E5;
+    font-weight:bold; 
+    text-align : center;
+    min-width: 203px;
+}
+
+.MenuChild {   
+    flex: 0 0 200px;
+    list-style-type: none;
+    background-color:#F5F5F5;
+    /* border : 1px transparent ; */
+    border-radius : 10px;
+    font-weight: lighter;
+    font-size: 14px;
+    text-align: left;
+    padding: 5px;
+    margin: 6px 0px 0px ;
+  
+}
+
+.Menuchild li{
+    padding: 0px 5px;
+}
+
+.collapse{
+    overflow:hidden;
+    display:none   
+}

@@ -17,6 +17,7 @@ export default function newsCategory(state = initialState, action){
                 let navElementArray = [] 
   
                  for(let i=0;i<uniqueCategories.length;i++){        
+
                           navElementArray[uniqueCategories[i]] = []        
                         for (let j=0;j<action.payload.length;j++) {
                             if (action.payload[j].category === uniqueCategories[i]){  
