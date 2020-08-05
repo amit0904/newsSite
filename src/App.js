@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import './App.css';
 import {GetCategories} from './Components/Actions';
@@ -17,6 +17,9 @@ function App() {
     <div>
       <NavBar />
       <Switch>
+          <Route exact path = '/' >
+              <Redirect to='/Main'/>
+          </Route>
           <Route exact path = '/Main' component={Introduction}/> 
           <Route extact path = '/News_feed' component={MenuBar}/>
           <Route path = '/' component={ErrorPage}/>
