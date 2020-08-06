@@ -17,11 +17,8 @@ function App() {
     <div>
       <NavBar />
       <Switch>
-          <Route exact path = '/' >
-              <Redirect to='/Main'/>
-          </Route>
-          <Route path = '/Main' component={Introduction}/> 
-          <Route path = '/News_feed' component={MenuBar}/>
+          <Route exact path = '/' component={Introduction}/> 
+          <Route exact path = '/News' component={MenuBar}/>
           <Route path = '/' component={ErrorPage}/>
       </Switch>
     </div>

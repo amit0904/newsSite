@@ -1,12 +1,14 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import './NavBar.css'
 
 
 function NavBar(){
     
     return(
         <nav style={{height : "50px", backgroundColor : "#4A4E69"}}>
-            <a href='/Main'style={{display: "inline-block" ,margin:"10px 30px", color : "white", fontSize : "20px"}}>Main</a>
-            <a href='/News_feed' style={{margin:"30px", color : "white", fontSize : "20px"}}>NewsFeed</a>
+            <NavLink to="/" activeClassName="active"><a style={{margin:"5px 30px",fontSize : "20px"}}>Main</a></NavLink>            
+            <NavLink to="/News" activeClassName="active" ><a style={{margin:"5px",  fontSize : "20px"}}>News</a></NavLink>
         </nav>
         
     )
