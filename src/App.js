@@ -20,8 +20,8 @@ function App() {
           <Route exact path = '/' >
               <Redirect to='/Main'/>
           </Route>
-          <Route exact path = '/Main' component={Introduction}/> 
-          <Route extact path = '/News_feed' component={MenuBar}/>
+          <Route path = '/Main' component={Introduction}/> 
+          <Route path = '/News_feed' component={MenuBar}/>
           <Route path = '/' component={ErrorPage}/>
       </Switch>
     </div>
