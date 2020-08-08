@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import NewsCard from '../NewsCard';
 import {GetNewsFeed} from '../Actions'
@@ -17,11 +17,10 @@ function MenuBar(){
    
        
         for (const property in menuElementArray ){
-        
             categoriesMenu.push( <ul className="MenuParent">
-                                    <li className={property} onClick={(e) => handleClickMenuParent(e)}>
+                                    <li className={property} onClick={(e) => handleClickMenuParent(e)} key={property}>
                                         {property.toUpperCase()}
-                                        <ul id={property} className="MenuChild collapse" text-align="left">
+                                        <ul id={property} className="MenuChild collapse">
                                             {menuElementArray[property].map(item => <li><a href="#" key={item} id={item} onClick={(e) => handleClickMenuChild(e)}>{item}</a></li> )}
                                         </ul>
                                     </li>
@@ -51,14 +50,14 @@ function MenuBar(){
         dispatch(GetNewsFeed(e.target.id))
         document.getElementById(expand).classList.toggle("collapse")
         setExpand("")
+        setNews(true)
     }
-    
     return(
         <React.Fragment>
-            <div style={{marginLeft : "10px"}}> 
+            <div style={{marginLeft : "10px"}}>            
                 {categoriesMenu}
             </div>                     
-            {news !== "" && <NewsCard/> }
+            {news && <NewsCard/> }
         </React.Fragment>        
     )
 }

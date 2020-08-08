@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Route, Switch, Redirect} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import './App.css';
 import {GetCategories} from './Components/Actions';
