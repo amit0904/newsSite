@@ -24,9 +24,7 @@ export default function newsCategory(state = initialState, action){
                                 navElementArray[uniqueCategories[i]].push(action.payload[j].id)
                             }
                         }
-                }
-                     
-                // const categoryArray = action.payload.map( item => ({category : item.category , categorySources : item.id}) )
+                }                                     
 
                 return ({...state, categorySources : navElementArray })
             default:

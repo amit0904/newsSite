@@ -1,5 +1,33 @@
-.active{
-    color:red;
-  }
+.linkStyle li{
+  list-style-type: none;
+  display : inline-block;
+  margin: 10px;
+  font-Size : 20px;
+}
 
-  
+.linkStyle{  
+  margin : 0px;
+  padding-left :15px;
+}
+
+
+nav a:link {
+  color:white;
+  background-color: transparent;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:visited {
+  color: white;
+  background-color: transparent;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: darkseagreen;
+  background-color: transparent;
+  font-weight: bold;
+  text-decoration: none;
+}

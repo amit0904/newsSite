@@ -1,4 +1,3 @@
-
 .MenuParent {
     display : inline-flex;
     flex-direction: column;
@@ -6,9 +5,10 @@
     border : .5px solid black;
     border-radius : 10px;
     padding : 5px 0px;
-    margin: 40px 10px;
+    margin: 10px;
     background-color :#E5E5E5;
     font-weight:bold; 
+    font-size: 1rem;
     text-align : center;
     min-width: 203px;
 }
@@ -17,7 +17,6 @@
     flex: 0 0 200px;
     list-style-type: none;
     background-color:#F5F5F5;
-    /* border : 1px transparent ; */
     border-radius : 10px;
     font-weight: lighter;
     font-size: 14px;
@@ -35,3 +34,30 @@
     overflow:hidden;
     display:none   
 }
+
+.MenuChild li a:link {
+    color : black;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+.MenuChild li a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+.MenuChild li:hover {
+    color:black;
+    background-color: transparent;
+    font-weight: bolder;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+.MenuParent li:hover {
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+  }

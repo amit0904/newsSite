@@ -17,11 +17,11 @@ function MenuBar(){
    
        
         for (const property in menuElementArray ){
-            categoriesMenu.push( <ul className="MenuParent">
-                                    <li className={property} onClick={(e) => handleClickMenuParent(e)} key={property}>
+            categoriesMenu.push( <ul className="MenuParent" key={property}>
+                                    <li className={property} key={property} onClick={(e) => handleClickMenuParent(e)} >
                                         {property.toUpperCase()}
                                         <ul id={property} className="MenuChild collapse">
-                                            {menuElementArray[property].map(item => <li><a href="#" key={item} id={item} onClick={(e) => handleClickMenuChild(e)}>{item}</a></li> )}
+                                            {menuElementArray[property].map(item =><li key={item} id={item} onClick={(e) => handleClickMenuChild(e)}>{item}</li> )}
                                         </ul>
                                     </li>
                                 </ul>
@@ -30,22 +30,23 @@ function MenuBar(){
     
     function handleClickMenuParent(e){
         e.stopPropagation()
-        let x = document.getElementById(e.target.className);
+        let parentClass = document.getElementById(e.target.className);
 
         if (e.target.className !== expand ){
             expand !== "" && document.getElementById(expand).classList.toggle("collapse");
-            x.classList.toggle("collapse");
+            parentClass.classList.toggle("collapse");
             setExpand(e.target.className);
         }
         else{
-            x.classList.toggle("collapse");
+            parentClass.classList.toggle("collapse");
             setExpand("");
         }
                
     }
 
-    function handleClickMenuChild(e){
 
+    function handleClickMenuChild(e){
+        debugger;
         e.stopPropagation()
         dispatch(GetNewsFeed(e.target.id))
         document.getElementById(expand).classList.toggle("collapse")
@@ -56,7 +57,7 @@ function MenuBar(){
         <React.Fragment>
             <div style={{marginLeft : "10px"}}>            
                 {categoriesMenu}
-            </div>                     
+            </div>                                 
             {news && <NewsCard/> }
         </React.Fragment>        
     )
