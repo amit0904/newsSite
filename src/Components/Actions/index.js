@@ -5,6 +5,7 @@ export function GetNewsFeed(props){
    
 const feedData = axios({ 
                         method : 'GET',
+                        headers : {origin : "http://localhost:3000/"},
                         url : `https://newsapi.org/v2/top-headlines?sources=${props}&apiKey=2a71dd1268d740ed82222f93e713c98f`})
 
 
@@ -16,6 +17,7 @@ export function GetCategories(){
    
    const categoryData = axios({
                                  method : 'GET',
+                                 headers : {origin : "http://localhost:3000/"},
                                  url : 'https://newsapi.org/v2/sources?language=en&apiKey=2a71dd1268d740ed82222f93e713c98f'})
                                  
    return (dispatch) => categoryData.then(response => dispatch({type : NEWS_CATEGORY, payload : response.data.sources}))
