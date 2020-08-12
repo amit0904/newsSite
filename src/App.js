@@ -8,10 +8,9 @@ import ErrorPage from './Components/ErrorPage';
 import Introduction from './Components/Introduction';
 import NavBar from './Components/NavBar';
 
-function App() {
-  const dispatch = useDispatch();
-  // eslint-disable-next-line
-  useEffect( () => {dispatch(GetCategories())} ,[])
+function App() {  
+
+  const errorMessage = 'Sorry, you seem to have typed or clicked an incorrect link.'
 
   return (
     <div>
@@ -19,7 +18,7 @@ function App() {
       <Switch>
           <Route exact path = '/' component={Introduction}/> 
           <Route exact path = '/News' component={MenuBar}/>
-          <Route path = '/' component={ErrorPage}/>
+          <Route path = '/' render = {() => <ErrorPage message={errorMessage} />}/>
       </Switch>
     </div>
   );

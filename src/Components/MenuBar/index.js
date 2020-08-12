@@ -1,18 +1,28 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import NewsCard from '../NewsCard';
-import {GetNewsFeed} from '../Actions'
+import ErrorPage from '../ErrorPage';
+import {GetNewsFeed,GetCategories} from '../Actions'
 import './MenuBar.css';
 
 function MenuBar(){
 
     const [news, setNews] = useState(false);
     const [expand, setExpand] = useState("");
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    var success = true
 
-      
+    useEffect( () => {dispatch(GetCategories())} ,[]);
 
-    const menuElementArray = useSelector(state => state.newsCategory.categorySources);
+    const menuElements = useSelector(state => state.newsCategory);
+
+    const menuElementArray = menuElements.sources
+
+    if(menuElements.status !== "ok" && menuElements.status !== "" ){
+
+        success = false
+    }
+
     var categoriesMenu = []
    
        
@@ -45,19 +55,17 @@ function MenuBar(){
     }
 
 
-    function handleClickMenuChild(e){
-        debugger;
+    function handleClickMenuChild(e){    
         e.stopPropagation()
         dispatch(GetNewsFeed(e.target.id))
         document.getElementById(expand).classList.toggle("collapse")
         setExpand("")
         setNews(true)
     }
+
     return(
         <React.Fragment>
-            <div style={{marginLeft : "10px"}}>            
-                {categoriesMenu}
-            </div>                                 
+            {success ? <div style={{marginLeft : "10px"}}>{categoriesMenu}</div> : <ErrorPage message={menuElements.message} />}
             {news && <NewsCard/> }
         </React.Fragment>        
     )
