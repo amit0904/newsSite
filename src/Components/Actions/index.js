@@ -26,7 +26,7 @@ export function GetCategories(){
                                      method : 'GET',
                                      url : 'https://newsapi.org/v2/sources?language=en&apiKey=2a71dd1268d740ed82222f93e713c98'})
                                      .then(response => dispatch({type : NEWS_CATEGORY_IS_SUCCESS, payload : response.data}))
-                                     .catch(error => {error.response.status !== 401 ? dispatch({type : NEWS_CATEGORY_IS_FAILURE, payload : error}) : dispatch({type : NEWS_CATEGORY_IS_SUCCESS , payload : offlineNewsSourceData}) })
+                                     .catch(error => {error.response.status !== 426 ? dispatch({type : NEWS_CATEGORY_IS_FAILURE, payload : error}) : dispatch({type : NEWS_CATEGORY_IS_SUCCESS , payload : offlineNewsSourceData}) })
 
    } 
 
