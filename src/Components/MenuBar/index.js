@@ -2,30 +2,29 @@ import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import NewsCard from '../NewsCard';
 import ErrorPage from '../ErrorPage';
-import {GetNewsFeed,GetCategories} from '../Actions'
+import {GetNewsFeed, GetCategories} from '../Actions';
+import {newsCategorySelector} from '../selectors/newsCategory';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog, faSpinner} from '@fortawesome/free-solid-svg-icons';
 import './MenuBar.css';
 
 function MenuBar(){
 
+    var categoriesMenu = [];
+
     const [news, setNews] = useState(false);
     const [expand, setExpand] = useState("");
     const dispatch = useDispatch();
-    var success = true
 
-    useEffect( () => {dispatch(GetCategories())} ,[]);
+    // eslint-disable-next-line
+    useEffect( () => { dispatch(GetCategories())} ,[])
 
-    const menuElements = useSelector(state => state.newsCategory);
+    const newsCategory = useSelector(newsCategorySelector);
 
-    const menuElementArray = menuElements.sources
-
-    if(menuElements.status !== "ok" && menuElements.status !== "" ){
-
-        success = false
-    }
-
-    var categoriesMenu = []
-   
-       
+    const menuElementArray = newsCategory.sources;
+    
+    const status = newsCategory.status;
+           
         for (const property in menuElementArray ){
             categoriesMenu.push( <ul className="MenuParent" key={property}>
                                     <li className={property} key={property} onClick={(e) => handleClickMenuParent(e)} >
@@ -55,18 +54,20 @@ function MenuBar(){
     }
 
 
-    function handleClickMenuChild(e){    
+    function handleClickMenuChild(e){
         e.stopPropagation()
         dispatch(GetNewsFeed(e.target.id))
         document.getElementById(expand).classList.toggle("collapse")
         setExpand("")
-        setNews(true)
+        setNews(news => !news)
     }
 
+    
     return(
-        <React.Fragment>
-            {success ? <div style={{marginLeft : "10px"}}>{categoriesMenu}</div> : <ErrorPage message={menuElements.message} />}
+        <React.Fragment>            
+            {newsCategory.isLoading ? <FontAwesomeIcon icon={faCog} rotation={90} pulse size="2x" color="red" /> : <div style={{marginLeft : "10px"}}>{categoriesMenu}</div>}
             {news && <NewsCard/> }
+            
         </React.Fragment>        
     )
 }

@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
 import './App.css';
-import {GetCategories} from './Components/Actions';
 import MenuBar from './Components/MenuBar';
 import ErrorPage from './Components/ErrorPage';
 import Introduction from './Components/Introduction';
