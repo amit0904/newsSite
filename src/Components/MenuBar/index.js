@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import NewsCard from '../NewsCard';
 import ErrorPage from '../ErrorPage';
+import Spinner from '../Spinner';
 import {GetNewsFeed, GetCategories} from '../Actions';
 import {newsCategorySelector} from '../selectors/newsCategory';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faSpinner} from '@fortawesome/free-solid-svg-icons';
 import './MenuBar.css';
+import { faNetworkWired } from '@fortawesome/free-solid-svg-icons';
 
 function MenuBar(){
 
@@ -64,8 +64,8 @@ function MenuBar(){
 
     
     return(
-        <React.Fragment>            
-            {newsCategory.isLoading ? <FontAwesomeIcon icon={faCog} rotation={90} pulse size="2x" color="red" /> : <div style={{marginLeft : "10px"}}>{categoriesMenu}</div>}
+        <React.Fragment>      
+            {newsCategory.isLoading ? <Spinner /> : <div style={{marginLeft : "10px"}}>{categoriesMenu}</div>}
             {news && <NewsCard/> }
             
         </React.Fragment>        
