@@ -13,7 +13,7 @@ function Introduction (){
             <li>The next page gets all its data from an api. Even content of menu bar and its drop down list.</li>
             <li>There is an implementation of react router, react-redux & thunk middleware.</li>
             <li>API calls are made using Axios.</li>
-            <li>It is responsive.</li>
+            <li>This is a desktop first website but it is still responsive.</li>
             <li>This website is hosted on AZURE.</li>
             <li>Any changes this website are deployed using Azure DevOps (CI/CD pipelines).</li>            
             <li>Unfortunately, the API that I used does not accept request from any server but localhost.<br/>

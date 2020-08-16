@@ -1,18 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import './NewsCard.css'
+import Spinner from '../Spinner';
 import ErrorPage from '../ErrorPage';
+import './NewsCard.css'
 
 function NewsCard() {
     
-    var success = true;
-
     const articleData = useSelector(state => state.newsFeedReducer)
-
-    if(articleData.status !== "ok" && articleData.status !== "" ){
-
-        success = false
-    }
 
     
     if(articleData.articles !== undefined && articleData.articles.length > 0 ){
@@ -28,7 +22,8 @@ function NewsCard() {
 
     return(
         <>
-        {success ? <div className="container" >{articleDataCopy}</div> : <ErrorPage message={articleData.message} />}
+        {articleData.success ? <div className="container" >{articleDataCopy}</div> : <ErrorPage message={articleData.message} />}
+        {articleData.isLoading && <Spinner />}  
         </>
     )
 }

@@ -4,9 +4,8 @@ import NewsCard from '../NewsCard';
 import ErrorPage from '../ErrorPage';
 import Spinner from '../Spinner';
 import {GetNewsFeed, GetCategories} from '../Actions';
-import {newsCategorySelector} from '../selectors/newsCategory';
+import {newsCategoryIsLoading,newsCategorySuccess,newsCategoryMessage, newsCategoryData} from '../selectors/newsCategory';
 import './MenuBar.css';
-import { faNetworkWired } from '@fortawesome/free-solid-svg-icons';
 
 function MenuBar(){
 
@@ -19,11 +18,13 @@ function MenuBar(){
     // eslint-disable-next-line
     useEffect( () => { dispatch(GetCategories())} ,[])
 
-    const newsCategory = useSelector(newsCategorySelector);
+    const isLoading = useSelector(newsCategoryIsLoading);
+    const success = useSelector(newsCategorySuccess);
+    const message = useSelector(newsCategoryMessage);
+    const newsCategory = useSelector(newsCategoryData);
 
-    const menuElementArray = newsCategory.sources;
+    const menuElementArray = newsCategory;
     
-    const status = newsCategory.status;
            
         for (const property in menuElementArray ){
             categoriesMenu.push( <ul className="MenuParent" key={property}>
@@ -40,7 +41,7 @@ function MenuBar(){
     function handleClickMenuParent(e){
         e.stopPropagation()
         let parentClass = document.getElementById(e.target.className);
-
+        
         if (e.target.className !== expand ){
             expand !== "" && document.getElementById(expand).classList.toggle("collapse");
             parentClass.classList.toggle("collapse");
@@ -59,13 +60,13 @@ function MenuBar(){
         dispatch(GetNewsFeed(e.target.id))
         document.getElementById(expand).classList.toggle("collapse")
         setExpand("")
-        setNews(news => !news)
+        setNews(true)
     }
 
-    
     return(
-        <React.Fragment>      
-            {newsCategory.isLoading ? <Spinner /> : <div style={{marginLeft : "10px"}}>{categoriesMenu}</div>}
+        <React.Fragment>
+            {success ?  <div style={{marginLeft : "10px"}}>{categoriesMenu}</div> : <ErrorPage message={message}/>  }
+            {isLoading && <Spinner />}             
             {news && <NewsCard/> }
             
         </React.Fragment>        

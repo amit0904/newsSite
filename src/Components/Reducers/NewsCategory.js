@@ -3,6 +3,7 @@ import {NEWS_CATEGORY_IN_PROGRESS, NEWS_CATEGORY_IS_SUCCESS, NEWS_CATEGORY_IS_FA
 
 const initialState = {
       isLoading :false,
+      success : true,
       status : "",
       message : "",
       code : "",
@@ -23,12 +24,12 @@ export default function newsCategory(state = initialState, action){
                 
                 const formatedSources = formatData(action.payload)
 
-                return ({...state, isLoading : false, status: action.payload.status, sources : formatedSources })
+                return ({...state, isLoading : false, success : true, status: action.payload.status, sources : formatedSources })
                                                                                                                    
             
             case NEWS_CATEGORY_IS_FAILURE:                
 
-                return ({...state, isLoading : false, status: action.payload.status, code : action.payload.code , message : action.payload.message})
+                return ({...state, isLoading : false, success : false, status: action.payload.status, code : action.payload.code , message : action.payload.message})
                 
             default:
                 return (state)
