@@ -15,9 +15,9 @@ function Introduction (){
             <li>API calls are made using Axios.</li>
             <li>This is a desktop first website but it is still responsive.</li>
             <li>This website is hosted on AZURE.</li>
-            <li>Any changes this website are deployed using Azure DevOps (CI/CD pipelines).</li>            
+            <li>Any changes to this website are deployed using Azure DevOps (CI/CD pipelines).</li>            
             <li>Unfortunately, the API that I used does not accept request from any server but localhost.<br/>
-                Still you can check website <a href="https://websiteforshowcase.z8.web.core.windows.net/" target="_blank" rel="noopener noreferrer" color="red">here</a>.
+                Still you can check the website <a href="https://websiteforshowcase.z8.web.core.windows.net/" target="_blank" rel="noopener noreferrer" color="red">here</a>.
             </li>
         </ul>
     </div>
