@@ -43,7 +43,9 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.0.8",
+    "@babel/plugin-transform-named-capturing-groups-regex": "^7.12.1",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.18.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
   }

@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/sharmaamit09040631/ReactJob/_apis/build/status/News%20Website%20-%20CI?branchName=refs%2Fpull%2F2%2Fmerge)](https://dev.azure.com/sharmaamit09040631/ReactJob/_build/latest?definitionId=3&branchName=refs%2Fpull%2F2%2Fmerge)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
