@@ -23,7 +23,8 @@
         "jsx-a11y/click-events-have-key-events" : 0,
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "max-len": [2, {"code": 500, "tabWidth": 2, "ignoreUrls": true}],
-        "no-unused-expressions": [2, { "allowShortCircuit": true, "allowTernary": true }]
+        "no-unused-expressions": [2, { "allowShortCircuit": true, "allowTernary": true }],
+        "linebreak-style": ["warn", "unix"]
       
 
     }
