@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react'
 
 function Introduction (){
@@ -16,8 +18,8 @@ function Introduction (){
             <li>This is a desktop first website but it is still responsive.</li>
             <li>This website is hosted on AZURE.</li>
             <li>Any changes to this website are deployed using Azure DevOps (CI/CD pipelines).</li>            
-            <li>Unfortunately, the API that I used does not accept request from any server but localhost.<br/>
-                Still you can check the website <a href="https://websiteforshowcase.z8.web.core.windows.net/" target="_blank" rel="noopener noreferrer" color="red">here</a>.
+            <li>Unfortunately, the API provider does not accept request from any server but localhost.<br/>
+                You can check the fully functional website by cloning the code on local.
             </li>
         </ul>
     </div>
